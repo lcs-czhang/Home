@@ -9,17 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: Stored property
-    let purpleToRed = Gradient(colors: [Color.purple, Color.red])
+    let tealToBlue = Gradient(colors: [Color.teal, Color.blue, Color.clear])
+    let yellowToPurple = Gradient(colors: [Color.yellow, Color.purple, Color.clear])
     // MARK: Computed property
     var body: some View {
         ZStack {
             
             //Bottom layer
-            LinearGradient(
-                gradient: purpleToRed, startPoint: .top, endPoint: .bottom
-            )
+            RadialGradient(gradient: tealToBlue, center: .topLeading, startRadius: 200, endRadius: 700)
             .ignoresSafeArea()
             
+            //Middle layer
+            RadialGradient(gradient: yellowToPurple, center: .bottomTrailing, startRadius: 200, endRadius: 700)
+            .ignoresSafeArea()
             //Top layer
             VStack {
                 Image(systemName: "globe")
